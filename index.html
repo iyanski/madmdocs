@@ -163,7 +163,21 @@
         </div>
 
         <hr/>
-        <h4>Response</h4>
+        <h4>JSON Request Structure</h4>
+        <div class="well">
+          <code>
+            {
+              "user": {
+                "email": "",
+                "password": "",
+                "first_name": "",
+                "last_name": ""
+              }
+            }
+          </code>
+        </div>
+        <hr/>
+        <h4>JSON Response</h4>
         <div class="well">
           <code>
             {<br/>
@@ -249,9 +263,20 @@
             </tbody>
           </table>
         </div>
-
         <hr/>
-        <h4>Response</h4>
+        <h4>JSON Request Structure</h4>
+        <div class="well">
+          <code>
+            {
+              "user": {
+                "email": "",
+                "password": ""
+              }
+            }
+          </code>
+        </div>
+        <hr/>
+        <h4>JSON Response</h4>
         <div class="well">
           <code>
             {<br/>
@@ -375,7 +400,17 @@
             </tbody>
           </table>
         </div>
-
+        <hr/>
+        <h4>JSON Request Structure</h4>
+        <div class="well">
+          <code>
+            {
+              "friend_request": {
+                "friend_id": 0
+              }
+            }
+          </code>
+        </div>
         <hr/>
         <h4>Response</h4>
         <p>The <code>user_id</code> is the reference id of the owner who requested the friend request. The <code>friend_id</code> is the <code>user.id</code> of the friend requested to connect with.
