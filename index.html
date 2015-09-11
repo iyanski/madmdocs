@@ -312,6 +312,95 @@
       </p>
 
 
+      <hr/>
+      <p id="#invitation">
+        <h2>Invitation</h2>
+        <p>This invitation will send an invitation currently via email to a non-existing madm user to join madm and automatically be added to the user's madm list upon signing up using the invitation link sent via email. To send an invitation, you have to create an invitation object.</p>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <code>POST /api/v1/invitations</code>
+        <hr/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Request Structure</h4>
+        <div class="well">
+          <code>
+            {
+              "invitation": {
+                "email": "",
+                "first_name": "",
+                "last_name": "",
+              }
+            }
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 5100,<br/>
+            &nbsp;&nbsp;"data": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"id": 24,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"user_id": 15,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"email": "iyanski@gmail.com",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"first_name": "Ian Bert",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"last_name": "Tusil",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"code": "ASQi52vBdkpVAVuQkM7w_w",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-09-11T16:49:05.138Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-09-11T16:49:05.138Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"status": false<br/>
+            &nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;"message": "Invitation to Ian Bert is sent!"<br/>
+            }<br/>
+          </code>
+        </div>
+
+        <h4>Errors</h4>
+        <p>Any failed requests to this endpoint will return these error response</p>
+        <hr/>
+        <h4>JSON Response</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 5101,<br/>
+            &nbsp;&nbsp;"data": null<br/>
+            &nbsp;&nbsp;"message": "First name can't be blank"<br/>
+            }<br/>
+          </code>
+        </div>
+
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 5101,<br/>
+            &nbsp;&nbsp;"data": null<br/>
+            &nbsp;&nbsp;"message": "Last name can't be blank"<br/>
+            }<br/>
+          </code>
+        </div>
+
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 5101,<br/>
+            &nbsp;&nbsp;"data": null<br/>
+            &nbsp;&nbsp;"message": "Email can't be blank"<br/>
+            }<br/>
+          </code>
+        </div>
+      </p>
+
+
 
       <hr/>
       <p id="#friends">
