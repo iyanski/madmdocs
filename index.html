@@ -6,10 +6,10 @@
     <title>Madm API Documentation by iyanski</title>
 
     <link rel="stylesheet" href="./stylesheets/styles.css">
-    <link rel="stylesheet" href="./stylesheets/github-light.css">
+    <link rel="stylesheet" href="./stylesheets/video.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href='//fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- <link href='//fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="./stylesheets/bootstrap.css">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -21,15 +21,17 @@
         <p>Madm API Docs</p>
         <ul class="sidebar-nav-items">
           <li>
-            <a href="#registrations">Registrations</a>
+            <a href="/#registrations">Registrations</a>
           </li>
           <li>
-            <a href="#sessions">Sessions</a>
+            <a href="/#sessions">Sessions</a>
           </li>
         </ul>
       </nav>
     </div>
     <div class="content">
+
+
       <h1>API Reference</h1>
       <i>
         Note: All API response shall be in JSON format. Specify the content-type to 'application/json' if the request is in JSON format. If not, there is no need to specify the content-type.
@@ -92,7 +94,7 @@
         </code>
       </div>
       <hr/>
-      <p id="#registrations">
+      <section id="#registrations">
         <h2>Registrations</h2>
         <p>To register a user, you create a user object. The authentication_token can be retrieved in the response.
         <hr/>
@@ -215,9 +217,9 @@
             }<br/>
           </code>
         </div>
-      </p>
+      </section>
       <hr/>
-      <p id="#sessions">
+      <section id="#sessions">
         <h2>Sessions</h2>
         <p>Only registered users can successfully make this request. There is no need to provide the authenticity token that was retrieved during the registration.</p>
 
@@ -309,11 +311,11 @@
             }<br/>
           </code>
         </div>
-      </p>
+      </section>
 
 
       <hr/>
-      <p id="#invitation">
+      <section id="#invitation">
         <h2>Invitation</h2>
         <p>This invitation will send an invitation currently via email to a non-existing madm user to join madm and automatically be added to the user's madm list upon signing up using the invitation link sent via email. To send an invitation, you have to create an invitation object.</p>
 
@@ -358,7 +360,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;"code": "ASQi52vBdkpVAVuQkM7w_w",<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-09-11T16:49:05.138Z",<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-09-11T16:49:05.138Z",<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;"status": false<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"code": "ltu49ZQoLd1el9Ux2NYy1w"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"invited_by": "John Smith"<br/>
             &nbsp;&nbsp;},<br/>
             &nbsp;&nbsp;"message": "Invitation to Ian Bert is sent!"<br/>
             }<br/>
@@ -398,12 +401,12 @@
             }<br/>
           </code>
         </div>
-      </p>
+      </section>
 
 
 
       <hr/>
-      <p id="#friends">
+      <section id="#friends">
         <h2>Friends</h2>
         <p>This will return an array of friends of the the user.</p>
 
@@ -441,12 +444,12 @@
             }<br/>
           </code>
         </div>
-      </p>
+      </section>
 
 
 
       <hr/>
-      <p id="#friends">
+      <section id="#friends">
         <h2>Friend Requests</h2>
         <p>To be able to connect with other Madm Users. You create a friend request object. This friend request object can have a status of "pending, accepted and ignored." </p>
 
@@ -528,8 +531,43 @@
             }<br/>
           </code>
         </div>
-      </p>
+      </section>
+
+
+      <section id="#drinks">
+        <h2>Drinks</h2>
+        <p>This will return an array drinks.</p>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <code>GET /api/v1/drinks</code>
+        <hr/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <p>The <code>user_id</code> is the reference id of the owner who requested the friend request. The <code>friend_id</code> is the <code>user.id</code> of the friend requested to connect with.
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 4000,<br/>
+            &nbsp;&nbsp;"data": [{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "Beer"<br/>
+            &nbsp;&nbsp;}]<br/>
+            },<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <hr/>
+      </section>
     </div>
-    <script src="./javascripts/scale.fix.js"></script>
   </body>
 </html>
