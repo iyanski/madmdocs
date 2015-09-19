@@ -451,6 +451,63 @@
       <hr/>
       <section id="#friend_request">
         <h2>Friend Requests</h2>
+        <p>Returns an array of the user's friend requests or list of people who wanted to be introduced to the user</p>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <code>GET /api/v1/friend_requests</code>
+        <hr/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <p>The <code>user_id</code> is the reference id of the user being requested to connect. The Friend field is the information of the user who initiated the friend request</p>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 4100,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_id": 16,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"friend": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 18,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mutual_friend": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 19,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }
+          </code>
+        </div>
+        <hr/>
+      </section>
+
+      <hr/>
+      <section id="#friend_request">
+        <h2>Ask for Introduction</h2>
         <p>To be able to connect with other Madm Users. You create a friend request object. This friend request object can have a status of "pending, accepted and ignored." </p>
 
         <hr/>
@@ -489,6 +546,18 @@
                   The <code>user.id</code> of the friend to be requested.
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <strong>mutual_friend_id</strong>
+                  <br/>
+                  <small>
+                    Integer
+                  </small>
+                </td>
+                <td>
+                  The <code>user.id</code> of the mutual friend requested to introduce user to.
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -498,7 +567,8 @@
           <code>
             {
               "friend_request": {
-                "friend_id": 0
+                "friend_id": 19,
+                "mutual_friend_id": 18,
               }
             }
           </code>
@@ -523,6 +593,16 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mutual_friend": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 19,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
             &nbsp;&nbsp;],<br/>
@@ -537,7 +617,21 @@
             {<br/>
             &nbsp;&nbsp;"status": 4001,<br/>
             &nbsp;&nbsp;"data": null<br/>
-            &nbsp;&nbsp;"message": "Error Message in String format."<br/>
+            &nbsp;&nbsp;"message": "Please specify both the person of interest and a mutual friend."<br/>
+            }<br/>
+          </code>
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 4002,<br/>
+            &nbsp;&nbsp;"data": null<br/>
+            &nbsp;&nbsp;"message": "Friend or mutual friend does not exist."<br/>
+            }<br/>
+          </code>
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 4003,<br/>
+            &nbsp;&nbsp;"data": null<br/>
+            &nbsp;&nbsp;"message": ""// Could be any unidentified error.<br/> 
             }<br/>
           </code>
         </div>
