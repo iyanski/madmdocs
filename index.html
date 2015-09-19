@@ -616,6 +616,50 @@
         </div>
         <hr/>
       </section>
+
+
+      <section id="#avatar">
+        <h2>User Avatar</h2>
+        <p>To update the avatar of the user, send the attachment along with the authentication headers.</p>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To update values of the fields along with the other fields, use the `PUT` method.</p>
+        <code>POST /api/v1/users/avatar</code>
+        <br/>
+        <br/>
+        <p>Below is a sample curl call to send photo to the endpoint. Please note the input field name `avatar`. </p>
+        <code>curl -F "avatar=@/Users/iyanski/Pictures/Avatars/ibtusil.jpg" -v -H "X-User-Email: ian@madm.com" -H "X-User-Token: PiYVjViZy-PM8wHQqKXz" http://127.0.0.1:3000/api/v1/users/avatar</code>
+        <hr/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <p>Regardless of the what value was updated, this endpoint will return the entire user object.</p>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 6100,<br/>
+            &nbsp;&nbsp;"data": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"id": 15,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }
+          </code>
+        </div>
+        <hr/>
+      </section>
     </div>
   </body>
 </html>
