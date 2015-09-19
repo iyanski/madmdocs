@@ -505,19 +505,29 @@
         </div>
         <hr/>
         <h4>JSON Response</h4>
-        <p>The <code>user_id</code> is the reference id of the owner who requested the friend request. The <code>friend_id</code> is the <code>user.id</code> of the friend requested to connect with.</p>
+        <p>The <code>user_id</code> is the reference id of the user being requested to connect. The Friend field is the information of the user who initiated the friend request</p>
         <div class="well">
           <code>
             {<br/>
-            &nbsp;&nbsp;"status": 4000,<br/>
-            &nbsp;&nbsp;"data": {<br/>
+            &nbsp;&nbsp;"status": 4100,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_id": 1,<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"friend_id": 1,<br/>
-            &nbsp;&nbsp;}<br/>
-            },<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_id": 16,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"friend": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 18,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
             &nbsp;&nbsp;"message": ""<br/>
-            }<br/>
+            }
           </code>
         </div>
         <hr/>
