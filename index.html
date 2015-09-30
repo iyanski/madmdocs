@@ -734,7 +734,7 @@
 
         <hr/>
         <h4>Endpoint</h4>
-        <p>To update values of the fields along with the other fields, use the `PUT` method.</p>
+        <p>To update values of the fields along with the other fields, use the `POST` method.</p>
         <code>POST /api/v1/users/avatar</code>
         <br/>
         <br/>
@@ -768,6 +768,57 @@
             }
           </code>
         </div>
+        <hr/>
+      </section>
+
+      <section id="#feeds">
+        <h2>Feeds</h2>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To fetch the feeds, use the `GET` method.</p>
+        <code>GET /api/v1/feeds</code>
+        <br/>
+        <br/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 7000,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 3,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_id": 2,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"friend_id": 3,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": "Carmen",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": "Feliciano",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"facebook_id": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-09-30T11:35:40.000Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-09-30T11:35:40.000Z"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <p>
+          <code>friend_id</code> is the user id of feed item.
+          <code>user_id</code> is the user id of the common friend.
+        </p>
         <hr/>
       </section>
     </div>
