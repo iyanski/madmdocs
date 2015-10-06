@@ -821,6 +821,111 @@
         </p>
         <hr/>
       </section>
+
+      <section id="#conversations">
+        <h2>Conversations</h2>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To fetch the conversations, use the `GET` method.</p>
+        <code>GET /api/v1/conversations</code>
+        <br/>
+        <br/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 8000,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"introduction_id": 23,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"peer": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 18,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"has_new_message": false,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-10-06T16:23:28.000Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-10-06T17:37:59.000Z"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <p>
+          <code>peer</code> is the user other party of the conversation.
+          <code>has_new_message</code> is false if the conversation is marked as read and there are no new messages in the conversation, otherwise, true.
+        </p>
+        <hr/>
+      </section>
+
+      <section id="#messages">
+        <h2>Messages</h2>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To fetch the messages of a conversation, use the `GET` method.</p>
+        <code>GET /api/v1/conversations/:conversation_id/messages</code>
+        <br/>
+        <br/>
+        Note: <code>:conversation_id</code> is the conversation id of the messages to be retrieved.
+        <br/>
+        <br/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9000,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"conversation_id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sender": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 18,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": "This is a text message",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-10-06T16:27:09.000Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-10-06T16:27:09.000Z"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <hr/>
+      </section>
     </div>
   </body>
 </html>
