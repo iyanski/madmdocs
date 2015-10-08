@@ -16,22 +16,27 @@
   </head>
   <body>
 
-    <div id="sidenav">
-      <nav class="sidebar-nav" role="navigation">
+    <div>
+      <nav class="sidebar-nav affix" role="navigation">
         <p>Madm API Docs</p>
         <ul class="sidebar-nav-items">
-          <li>
-            <a href="/#registrations">Registrations</a>
-          </li>
-          <li>
-            <a href="/#sessions">Sessions</a>
-          </li>
+          <li><a class="registrations" href="#registrations">Registrations</a> </li>
+          <li><a class="sessions" href="#sessions">Sessions</a> </li>
+          <li><a class="friends" href="#friends">Friends</a></li>
+          <li><a class="friend_request" href="#friend_request">Friend Request</a></li>
+          <li><a class="ask_for_introduction" href="#invitations">Ask for Intro</a></li>
+          <li><a class="drinks" href="#drinks">Drinks</a></li>
+          <li><a class="user" href="#user">User</a></li>
+          <li><a class="avatar" href="#avatar">Avatar</a></li>
+          <li><a class="feeds" href="#feeds">Feeds</a></li>
+          <li><a class="conversations" href="#conversations">Conversations</a></li>
+          <li><a class="conversation_messages" href="#conversation_messages">Conversation Messages</a></li>
+          <li><a class="messages" href="#messages">Messages</a></li>
+          <li><a class="write_messages" href="#write_messages">Write Message</a></li>
         </ul>
       </nav>
     </div>
     <div class="content">
-
-
       <h1>API Reference</h1>
       <i>
         Note: All API response shall be in JSON format. Specify the content-type to 'application/json' if the request is in JSON format. If not, there is no need to specify the content-type.
@@ -94,9 +99,9 @@
         </code>
       </div>
       <hr/>
-      <section id="#registrations">
+      <section id="registrations">
         <h2>Registrations</h2>
-        <p>To register a user, you create a user object. The authentication_token can be retrieved in the response.
+        <p>To register a user, you create a user object. The authentication_token can be retrieved in the response.<p>
         <hr/>
         <h4>Endpoint</h4>
         <code>POST /users</code>
@@ -222,7 +227,7 @@
         </div>
       </section>
       <hr/>
-      <section id="#sessions">
+      <section id="sessions">
         <h2>Sessions</h2>
         <p>Only registered users can successfully make this request. There is no need to provide the authenticity token that was retrieved during the registration.</p>
 
@@ -321,7 +326,7 @@
 
 
       <hr/>
-      <section id="#invitation">
+      <section id="invitations">
         <h2>Invitation</h2>
         <p>This invitation will send an invitation currently via email to a non-existing madm user to join madm and automatically be added to the user's madm list upon signing up using the invitation link sent via email. To send an invitation, you have to create an invitation object.</p>
 
@@ -412,7 +417,7 @@
 
 
       <hr/>
-      <section id="#friends">
+      <section id="friends">
         <h2>Friends</h2>
         <p>This will return an array of friends of the the user.</p>
 
@@ -455,7 +460,7 @@
 
 
       <hr/>
-      <section id="#friend_request">
+      <section id="friend_request">
         <h2>Friend Requests</h2>
         <p>Returns an array of the user's friend requests or list of people who wanted to be introduced to the user</p>
 
@@ -512,7 +517,7 @@
       </section>
 
       <hr/>
-      <section id="#friend_request">
+      <section id="ask_for_introduction">
         <h2>Ask for Introduction</h2>
         <p>To be able to connect with other Madm Users. You create a friend request object. This friend request object can have a status of "pending, accepted and ignored." </p>
 
@@ -644,7 +649,7 @@
       </section>
 
 
-      <section id="#drinks">
+      <section id="drinks">
         <h2>Drinks</h2>
         <p>This will return an array drinks.</p>
 
@@ -678,7 +683,7 @@
         <hr/>
       </section>
 
-      <section id="#user">
+      <section id="user">
         <h2>Users</h2>
         <p>To be able to update the info of the user, Create a user object.</p>
 
@@ -728,7 +733,7 @@
       </section>
 
 
-      <section id="#avatar">
+      <section id="avatar">
         <h2>User Avatar</h2>
         <p>To update the avatar of the user, send the attachment along with the authentication headers.</p>
 
@@ -771,7 +776,7 @@
         <hr/>
       </section>
 
-      <section id="#feeds">
+      <section id="feeds">
         <h2>Feeds</h2>
 
         <hr/>
@@ -822,7 +827,7 @@
         <hr/>
       </section>
 
-      <section id="#conversations">
+      <section id="conversations">
         <h2>Conversations</h2>
 
         <hr/>
@@ -875,7 +880,7 @@
         <hr/>
       </section>
 
-      <section id="#conversation_messages">
+      <section id="conversation_messages">
         <h2>Conversation Messages</h2>
 
         <hr/>
@@ -927,7 +932,7 @@
         <hr/>
       </section>
 
-      <section id="#messages">
+      <section id="messages">
         <h2>Messages</h2>
 
         <hr/>
@@ -976,7 +981,7 @@
         <hr/>
       </section>
 
-      <section id="#write messages">
+      <section id="write_messages">
         <h2>Write Message</h2>
 
         <hr/>
@@ -1121,4 +1126,32 @@
       </section>
     </div>
   </body>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function (){
+    $('#affix').affix({
+      offset: {
+        top: 100,
+        bottom: function () {
+          return (this.bottom = $('.footer').outerHeight(true))
+        }
+      }
+    });
+    $("a.registrations").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#registrations").offset().top }, 300); });
+    $("a.sessions").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#sessions").offset().top }, 300); });
+    $("a.invitations").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#invitations").offset().top }, 300); });
+    $("a.friends").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#friends").offset().top }, 300); });
+    $("a.friend_request").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#friend_request").offset().top }, 300); });
+    $("a.ask_for_introduction").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#ask_for_introduction").offset().top }, 300); });
+    $("a.drinks").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#drinks").offset().top }, 300); });
+    $("a.user").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#user").offset().top }, 300); });
+    $("a.avatar").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#avatar").offset().top }, 300); });
+    $("a.feeds").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#feeds").offset().top }, 300); });
+    $("a.conversations").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#conversations").offset().top }, 300); });
+    $("a.conversation_messages").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#conversation_messages").offset().top }, 300); });
+    $("a.messages").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#messages").offset().top }, 300); });
+    $("a.write_messages").click(function(a) { a.preventDefault(); $('html, body').animate({ scrollTop: $("#write_messages").offset().top }, 300); });
+  });
+  </script>
 </html>
