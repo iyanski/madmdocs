@@ -179,7 +179,7 @@
           </code>
         </div>
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -210,7 +210,7 @@
         </ul>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -281,7 +281,7 @@
           </code>
         </div>
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -307,7 +307,7 @@
         <h4>Errors</h4>
         <p>Any failed requests to this endpoint will return only one identified error response</p>
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -352,7 +352,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -377,7 +377,7 @@
         <h4>Errors</h4>
         <p>Any failed requests to this endpoint will return these error response</p>
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -429,7 +429,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -472,7 +472,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <p>The <code>user_id</code> is the reference id of the user being requested to connect. The Friend field is the information of the user who initiated the friend request</p>
         <div class="well">
           <code>
@@ -580,7 +580,7 @@
           </code>
         </div>
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <p>The <code>user_id</code> is the reference id of the user being requested to connect. The Friend field is the information of the user who initiated the friend request</p>
         <div class="well">
           <code>
@@ -661,7 +661,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -702,7 +702,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <p>Regardless of the what value was updated, this endpoint will return the entire user object.</p>
         <div class="well">
           <code>
@@ -750,7 +750,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <p>Regardless of the what value was updated, this endpoint will return the entire user object.</p>
         <div class="well">
           <code>
@@ -789,7 +789,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -840,7 +840,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -875,8 +875,8 @@
         <hr/>
       </section>
 
-      <section id="#messages">
-        <h2>Messages</h2>
+      <section id="#conversation_messages">
+        <h2>Conversation Messages</h2>
 
         <hr/>
         <h4>Endpoint</h4>
@@ -896,7 +896,7 @@
         </div>
 
         <hr/>
-        <h4>JSON Response</h4>
+        <h4>JSON Response Structure</h4>
         <div class="well">
           <code>
             {<br/>
@@ -922,6 +922,199 @@
             &nbsp;&nbsp;],<br/>
             &nbsp;&nbsp;"message": ""<br/>
             }<br/>
+          </code>
+        </div>
+        <hr/>
+      </section>
+
+      <section id="#messages">
+        <h2>Messages</h2>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To fetch the latest messages, use the `GET` method.</p>
+        <code>GET /api/v1/messages</code>
+        <br/>
+        <br/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>JSON Response Structure</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9000,<br/>
+            &nbsp;&nbsp;"data": [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"conversation_id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sender": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 18,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"first_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_name": null,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xlarge": "/images/xlarge/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_large": "/images/large/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_medium": "/images/medium/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_small": "/images/small/missing.png",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avatar_xsmall": "/images/xsmall/missing.png"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": "This is a text message",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-10-06T16:27:09.000Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-10-06T16:27:09.000Z"<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <hr/>
+      </section>
+
+      <section id="#write messages">
+        <h2>Write Message</h2>
+
+        <hr/>
+        <h4>Endpoint</h4>
+        <p>To be able to send messages to other users, a message object has to be created. To do that, use `POST` method.</p>
+        <code>POST /api/v1/messages</code>
+        <br/>
+        <br/>
+        <h4>Request Headers</h4>
+        <div class="well">
+          <code>
+            X-User-Email alice@example.com<br/>
+            X-User-Token 1G8_s7P-V-4MGojaKD7a
+          </code>
+        </div>
+
+        <hr/>
+        <h4>Parameters</h4>
+        <div class="well">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Attributes</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>body</strong>
+                  <br/>
+                  <small>
+                    Text
+                  </small>
+                </td>
+                <td>
+                  This is the content of the message
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>conversation_id</strong>
+                  <br/>
+                  <small>
+                    Integer
+                  </small>
+                </td>
+                <td>
+                  The <code>conversation.id</code> that this message is sent to.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>recipient_id</strong>
+                  <br/>
+                  <small>
+                    Integer
+                  </small>
+                </td>
+                <td>
+                  The <code>user.id</code> of the message recipient.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr/>
+        <h4>JSON Request Structure</h4>
+        <div class="well">
+          <code>
+            {
+              "message": {
+                "body": "",
+                "conversation_id": 1,
+                "recipient_id": 2
+              }
+            }
+          </code>
+        </div>
+        <hr/>
+        <h4>JSON Response Structure</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9100,<br/>
+            &nbsp;&nbsp;"data": {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"id": 6,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"conversation_id": 1,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"user_id": 16,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"recipient_id": 16,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"body": "lkjasdfkla sdfklja lsdfkadslf alsdkf",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"created_at": "2015-10-08T01:21:11.782Z",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;"updated_at": "2015-10-08T01:21:11.782Z"<br/>
+            &nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;"message": ""<br/>
+            }<br/>
+          </code>
+        </div>
+        <hr/>
+        <h4>Errors</h4>
+        <p>The error messages may vary depending on the nature of the error. Below are the identified possible error scenarios.</p>
+        <ul>
+          <li>Body can't be blank</li>
+          <li>Conversation can't be blank</li>
+          <li>Recipient can't be blank</li>
+        </ul>
+
+        <hr/>
+        <h4>JSON Response Structure</h4>
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9101,<br/>
+            &nbsp;&nbsp;"data": null,<br/>
+            &nbsp;&nbsp;"message": "Body can't be blank"<br/>
+            }
+          </code>
+        </div>
+
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9101,<br/>
+            &nbsp;&nbsp;"data": null,<br/>
+            &nbsp;&nbsp;"message": "Conversation can't be blank"<br/>
+            }
+          </code>
+        </div>
+
+        <div class="well">
+          <code>
+            {<br/>
+            &nbsp;&nbsp;"status": 9101,<br/>
+            &nbsp;&nbsp;"data": null,<br/>
+            &nbsp;&nbsp;"message": "Recipient can't be blank"<br/>
+            }
           </code>
         </div>
         <hr/>
